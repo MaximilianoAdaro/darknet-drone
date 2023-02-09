@@ -131,7 +131,7 @@ def decode_detection(detections):
     decoded = []
     for label, confidence, bbox in detections:
         confidence = str(round(confidence * 100, 2))
-        bbox_short = np.astype(int)
+        bbox_short = np.array(bbox).astype(int)
         decoded.append((str(label), confidence, bbox_short))
     return decoded
 
