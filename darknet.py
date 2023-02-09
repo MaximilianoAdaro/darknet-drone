@@ -12,7 +12,7 @@ from ctypes import *
 import math
 import random
 import os
-
+import numpy as np
 
 class BOX(Structure):
     _fields_ = [("x", c_float),
@@ -131,7 +131,8 @@ def decode_detection(detections):
     decoded = []
     for label, confidence, bbox in detections:
         confidence = str(round(confidence * 100, 2))
-        decoded.append((str(label), confidence, bbox))
+        bbox_short = np.astype(int)
+        decoded.append((str(label), confidence, bbox_short))
     return decoded
 
 # https://www.pyimagesearch.com/2015/02/16/faster-non-maximum-suppression-python/
