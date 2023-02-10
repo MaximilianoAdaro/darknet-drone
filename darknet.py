@@ -131,8 +131,8 @@ def decode_detection(detections):
     decoded = []
     for label, confidence, bbox in detections:
         confidence = str(round(confidence * 100, 2))
-        bbox_short = np.array(bbox).astype(int)
-        decoded.append((str(label), confidence, bbox_short))
+        # bbox_short = np.array(bbox).astype(int)
+        decoded.append((str(label), confidence, bbox))
     return decoded
 
 # https://www.pyimagesearch.com/2015/02/16/faster-non-maximum-suppression-python/
